@@ -1,0 +1,87 @@
+@if (isuser) {
+<nav class="bg-white fixed w-full z-20 top-0 start-0 ">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+
+    <a routerLink="/" class="text-2xl font-bold flex items-center  rtl:space-x-reverse ">
+      MODEVA
+    </a>
+    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+      <div class="    focus:ring-4 focus:ring-brand-medium  font-medium    px-3 py-2 ">
+
+
+        <a routerLink="/products">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <a routerLink="/cart" class="relative hover:text-accent">
+          <i class="fa-solid fa-cart-arrow-down"></i>
+
+        </a>
+
+
+        <a routerLink="/login" class="relative hover:text-accent" (click)="signout()">
+
+          <p>Sign out</p>
+
+        </a>
+
+      </div>
+
+
+      <button data-collapse-toggle="navbar-sticky" type="button"
+        class="inline-flex items-center p-2 w-10 h-10 bg-gray-100 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary bg-gray-100"
+        aria-controls="navbar-sticky" aria-expanded="false">
+        <span class="sr-only bg-gray-100">Open main menu</span>
+        <svg class="w-6 h-6 bg-gray-100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14" />
+        </svg>
+      </button>
+
+
+    </div>
+
+
+
+    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+      <ul
+        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-default rounded-base bg-neutral-secondary-soft md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-neutral-primary">
+        @for (page of pages; track $index) {
+        <li>
+          <a [routerLink]="page.link"
+            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+            aria-current="page">{{page.name}}</a>
+        </li>
+
+        }
+
+      </ul>
+    </div>
+
+
+  </div>
+</nav>
+}
+@else{
+<nav class="bg-white shadow-sm">
+  <div class="container-custom flex items-center justify-between py-4">
+
+    <div class="px-6">
+      <a routerLink="/" class="text-2xl font-bold text-primary px-6">
+        MODEVA
+      </a>
+    </div>
+
+
+
+
+    <div class="flex items-center space-x-4 text-lg    font-medium px-6">
+      <a routerLink="/login" class="hover:text-primary">Login</a>
+      <a routerLink="/signup" class="hover:text-primary">Sign Up</a>
+    </div>
+
+  </div>
+</nav>
+
+}

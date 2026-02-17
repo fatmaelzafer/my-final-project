@@ -1,0 +1,33 @@
+<div class="max-w-7xl mx-auto px-4 py-12">
+
+    <h2 class="text-3xl font-bold mb-8">All Products</h2>
+
+    <form class="max-w-md mx-auto py-2">
+        
+        <div class="relative">
+            
+            <input type="search" id="search"
+            [(ngModel)]="searchText"
+                class="block w-full p-3 ps-9 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+                placeholder="Search"  />
+            
+        </div>
+    </form>
+
+    <div class="grid  sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+        @for (p of products()| paginate: { itemsPerPage: 12, currentPage: page,totalItems:totalnumberofproducts()}| search:searchText;track p._id) {
+        <app-product-card [p]="p"> </app-product-card>
+            
+        }@empty {
+            <p>no data</p>
+        }
+        <div class=" w-full">
+            <pagination-controls (pageChange)="changepage($event)" previousLabel="Prev"
+                nextLabel="Next"></pagination-controls>
+        </div>
+
+    </div>
+
+
+</div>
