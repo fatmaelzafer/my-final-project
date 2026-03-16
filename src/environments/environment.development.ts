@@ -1,3 +1,3 @@
 export const environment = {
-    apiUrl:'https://ecommerce.routemisr.com/api/v1',
+    apiUrl:'https://ecommerce.routemisr.com/api/v2',
 };
